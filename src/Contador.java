@@ -11,10 +11,18 @@ public class Contador {
 
         terminal.close();
 
-        contar(parametroUm, parametroDois);
+        try {
+            contar(parametroUm, parametroDois);
+        } catch (ParametrosInvalidosException exception) {
+            System.out.println(exception.getMessage());
+        }
     }
 
-    static void contar(int parametroUm, int parametroDois) {
+    static void contar(int parametroUm, int parametroDois) throws ParametrosInvalidosException {
+        if (parametroDois <= parametroUm) {
+            throw new ParametrosInvalidosException("O segundo parâmetro deve ser menor que o primeiro");
+        }
+
         int contagem = parametroDois - parametroUm;
         for (int i = 1; i <= contagem; i++) {
             System.out.println("Imprimindo o número " + i);
