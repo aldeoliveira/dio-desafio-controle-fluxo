@@ -13,6 +13,9 @@ public class Contador {
     }
 
     static void contar(int parametroUm, int parametroDois) {
-        
+        int contagem = parametroDois - parametroUm;
+        for (int i = 1; i <= contagem; i++) {
+            System.out.println("Imprimindo o número " + i);
+        }
     }
 }
